@@ -1,0 +1,15 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df = pd.read_csv('covid_data.csv')
+
+countries = ['India', 'USA', 'Brazil']
+for country in countries:
+    subset = df[df['Country'] == country]
+    plt.plot(subset['Date'], subset['Cases'], label=country)
+
+plt.xlabel('Date')
+plt.ylabel('Cases')
+plt.title('COVID-19 Cases Over Time')
+plt.legend()
+plt.show()
